@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://8cj3ubemjdxx"]
+
+[ext_resource type="PackedScene" uid="uid://em5npulb1kki" path="res://scene/FlowBackGround.tscn" id="1_uripi"]
+[ext_resource type="PackedScene" uid="uid://b3xd4o8pee0ud" path="res://scene/car.tscn" id="2_j5fj6"]
+[ext_resource type="PackedScene" uid="uid://dhxogo7tsio57" path="res://scene/score_screen.tscn" id="3_r20ea"]
+[ext_resource type="PackedScene" uid="uid://bnb83sh3ge2eu" path="res://scene/CupCake.tscn" id="4_o6uhd"]
+[ext_resource type="Script" path="res://scripts/CupCakeMaker.gd" id="5_3q0fx"]
+
+[node name="Game" type="ParallaxBackground"]
+layer = 0
+
+[node name="FlowBackGround" parent="." instance=ExtResource("1_uripi")]
+
+[node name="Car" parent="." instance=ExtResource("2_j5fj6")]
+z_index = 5
+position = Vector2(488, 521)
+up_direction = Vector2(1.04082e-12, -1)
+
+[node name="CupCake" parent="." instance=ExtResource("4_o6uhd")]
+position = Vector2(489, 358)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("3_r20ea")]
+
+[node name="CupCakeMaker" type="Node" parent="."]
+script = ExtResource("5_3q0fx")
+
+[node name="Timer" type="Timer" parent="CupCakeMaker"]
+
+[connection signal="timeout" from="CupCakeMaker/Timer" to="CupCakeMaker" method="_on_timer_timeout"]
