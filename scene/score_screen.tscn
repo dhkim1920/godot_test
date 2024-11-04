@@ -4,6 +4,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_sq8vk"]
 line_spacing = 50.0
+font_size = 40
+font_color = Color(0.185424, 2.65537e-05, 0.188602, 1)
+outline_size = 3
 
 [node name="ScoreScreen" type="Control"]
 layout_mode = 3

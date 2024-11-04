@@ -8,7 +8,7 @@ func _process(delta):
 	position.y += scroll_speed * delta
 
 func _on_body_entered(body):
-	if body.name == "car":
+	if body.name == "Car":
 		Global.score += 10
 		print("collision car")
 		self.queue_free()
